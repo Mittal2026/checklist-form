@@ -1,0 +1,204 @@
+/* Checklist Task Form — GitHub Pages version */
+/* Same style as original Apps Script form */
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  padding: 30px;
+}
+
+.container {
+  max-width: 850px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.page-subtitle {
+  color: #666;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.col { flex: 1; }
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.required { color: red; }
+
+.error-field {
+  border: 2px solid #ef4444 !important;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+textarea { resize: vertical; }
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-group input { width: auto; }
+.checkbox-group label { margin: 0; font-weight: normal; }
+
+#searchResults {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  max-height: 220px;
+  overflow-y: auto;
+  background: white;
+}
+
+.result-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.result-item:hover { background: #e8f0fe; }
+
+.selected-item {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin: 4px;
+  font-size: 13px;
+}
+
+.selected-item:hover { background: #bfdbfe; }
+
+.remove-btn {
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submit-btn {
+  width: 100%;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.submit-btn:hover { background: #1557b0; }
+.submit-btn:disabled { background: #9ca3af; cursor: not-allowed; }
+
+.footer {
+  margin-top: 25px;
+  text-align: center;
+  color: #888;
+  font-size: 12px;
+}
+
+/* Loading state */
+.loading-state {
+  padding: 60px 20px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.loading-spinner {
+  width: 32px; height: 32px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #1a73e8;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Modals */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  margin: 15% auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  background: #16a34a;
+  color: white;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 25px;
+  text-align: center;
+}
+
+.modal-footer {
+  padding: 15px;
+  text-align: center;
+}
+
+.modal-btn {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.modal-btn:hover { opacity: 0.9; }
